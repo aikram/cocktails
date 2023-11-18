@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Detalle del Cocktail</title>
+</head>
+<body>
+    <h1>{{ cocktail['strDrink'] }}</h1>
+    <p>Tags: {{ cocktail['strTags'] or 'N/A' }}</p>
+    <p>Categoría: {{ cocktail['strCategory'] }}</p>
+    <p>Tipo: {{ cocktail['strAlcoholic'] }}</p>
+    <p>Vaso: {{ cocktail['strGlass'] }}</p>
+    <p>Instrucciones: {{ cocktail['strInstructions'] }}</p>
+    <img src="{{ cocktail['strDrinkThumb'] }}" alt="Imagen del Cocktail">
+    <p>Ingredientes:</p>
+    <ul>
+        {% for i in range(1, 16) %}
+        {% if cocktail['strIngredient' ~ i] %}
+        <li>{{ cocktail['strIngredient' ~ i] }}: {{ cocktail['strMeasure' ~ i] or '' }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <a href="/">Regresar a la lista</a>
+</body>
+</html>

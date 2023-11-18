@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Lista de Cocktails</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+        </tr>
+        {% for cocktail in cocktails %}
+        <tr>
+            <td><a href="/cocktail/{{ cocktail['idDrink'] }}">{{ cocktail['strDrink'] }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
